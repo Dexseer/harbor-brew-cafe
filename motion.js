@@ -90,6 +90,14 @@
     inner.style.backgroundImage = bg;
     photo.style.backgroundImage = "none";
     photo.append(inner);
+    // If the image can't be fetched, show a soft placeholder instead of an empty card
+    // and name the failing URL in the console.
+    const m = /url\(["']?(.*?)["']?\)/.exec(bg);
+    if (m) {
+      const probe = new Image();
+      probe.onerror = () => { photo.classList.add("photo-missing"); console.warn("Menu photo failed to load:", m[1]); };
+      probe.src = m[1];
+    }
   });
 
   // script.js sets up its card reveal before the menu cards exist, so cards never
