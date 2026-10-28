@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Harbor Brew is a fictional café website concept showcasing a warm, modern café experience.">
+  <meta name="theme-color" content="#f7f3eb">
+  <title>Harbor Brew Café — Coffee, Slow Mornings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="announcement">GOOD COFFEE. GOOD COMPANY. EVERY DAY.</div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Harbor Brew home">
+      <span class="brand-mark" aria-hidden="true">hb.</span>
+      <span class="brand-name">HARBOR BREW<span>CAFÉ & COFFEE</span></span>
+    </a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+      <span></span><span></span>
+    </button>
+    <nav class="nav" id="primary-nav" aria-label="Main navigation">
+      <a href="#story">Our story</a>
+      <a href="#menu">Menu</a>
+      <a href="#visit">Visit us</a>
+      <a class="nav-cta" href="#menu">Explore the menu <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> YOUR NEIGHBORHOOD COFFEE SPOT</p>
+        <h1>Make room<br>for <em>slow</em> mornings.</h1>
+        <p class="hero-description">Thoughtfully brewed coffee, fresh little bites, and a cozy corner to make the day feel a little lighter.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#menu">See what's brewing <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#story">A little about us <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-note">
+          <div class="note-icon" aria-hidden="true">✳</div>
+          <p><strong>Made with care.</strong><br>Served with a little sunshine.</p>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image" role="img" aria-label="Coffee and pastry on a café table"></div>
+        <div class="image-sticker"><span>BREWED</span><strong>with<br>heart</strong><span>DAILY · 01</span></div>
+        <div class="image-caption"><span>01 / 03</span><span>THE EVERYDAY RITUAL</span></div>
+      </div>
+      <div class="hero-side-label">COFFEE · COMMUNITY · COMFORT</div>
+    </section>
+
+    <section class="ticker" aria-label="Our values">
+      <div>GOOD COFFEE <span>✳</span> EASY DAYS <span>✳</span> LITTLE MOMENTS <span>✳</span> GOOD COFFEE <span>✳</span> EASY DAYS <span>✳</span> LITTLE MOMENTS <span>✳</span></div>
+    </section>
+
+    <section class="story section" id="story">
+      <div class="section-kicker">01 / THE STORY</div>
+      <div class="story-layout">
+        <div>
+          <h2>A small pause<br>in a busy world.</h2>
+        </div>
+        <div class="story-copy">
+          <p class="lead">Harbor Brew is a concept for a neighborhood café built around a simple idea: the best part of your day doesn't have to be a big thing.</p>
+          <p>It can be your first sip of coffee, a warm pastry shared with a friend, or ten quiet minutes before everything gets busy. We made this little space for all of it.</p>
+          <a class="text-link" href="#visit">Come say hello <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="story-image" role="img" aria-label="Warm sunlight falling across a coffee shop table"></div>
+      <div class="story-image-caption">A LITTLE SPACE TO STAY A WHILE.</div>
+    </section>
+
+    <section class="menu-section section" id="menu">
+      <div class="section-kicker">02 / THE GOOD STUFF</div>
+      <div class="section-heading">
+        <div><h2>Made for your<br><em>kind</em> of day.</h2></div>
+        <p>Comforting favorites, made simply.<br>Here are a few things on our concept menu.</p>
+      </div>
+      <div class="menu-grid">
+        <article class="menu-card">
+          <div class="menu-photo photo-latte" role="img" aria-label="Latte in a ceramic cup"></div>
+          <div class="menu-card-info"><div><h3>Honey Oat Latte</h3><p>Espresso · oat milk · honey</p></div><span>₱160</span></div>
+          <div class="menu-tag">HOUSE FAVORITE</div>
+        </article>
+        <article class="menu-card">
+          <div class="menu-photo photo-coldbrew" role="img" aria-label="Iced coffee in a glass"></div>
+          <div class="menu-card-info"><div><h3>Brown Sugar Cold Brew</h3><p>Slow-steeped · brown sugar</p></div><span>₱145</span></div>
+        </article>
+        <article class="menu-card">
+          <div class="menu-photo photo-pastry" role="img" aria-label="Fresh pastry on a plate"></div>
+          <div class="menu-card-info"><div><h3>Butter Croissant</h3><p>Flaky · golden · fresh</p></div><span>₱95</span></div>
+        </article>
+      </div>
+      <p class="menu-disclaimer">Sample menu and prices for portfolio demonstration only.</p>
+    </section>
+
+    <section class="quote-band">
+      <span class="quote-star" aria-hidden="true">✳</span>
+      <p>“Take your time.<br><em>The coffee isn't going anywhere.</em>”</p>
+      <span class="quote-credit">A HARBOR BREW REMINDER</span>
+    </section>
+
+    <section class="visit section" id="visit">
+      <div class="section-kicker">03 / FIND YOUR WAY</div>
+      <div class="visit-layout">
+        <div class="visit-copy">
+          <h2>Your next<br>favorite corner.</h2>
+          <p>We'd love to have you over for a cup, a catch-up, or a quiet moment to yourself.</p>
+          <div class="visit-details">
+            <div><span class="detail-label">LOCATION</span><p>Cebu City, Philippines<br><small>Concept location — not a real storefront</small></p></div>
+            <div><span class="detail-label">HOURS</span><p>Monday – Saturday<br>8:00 AM – 6:00 PM</p></div>
+          </div>
+          <a class="button button-dark" href="mailto:hello@example.com?subject=Harbor%20Brew%20Inquiry">Say hello <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="visit-image" role="img" aria-label="Cozy café interior with wooden furniture"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="#home"><span class="brand-mark">hb.</span><span class="brand-name">HARBOR BREW<span>CAFÉ & COFFEE</span></span></a>
+    <p>A fictional café website concept<br>designed as a web development portfolio project.</p>
+    <a class="back-top" href="#home">BACK TO TOP ↑</a>
+    <div class="footer-bottom"><span>© 2026 HARBOR BREW CONCEPT</span><span>MADE WITH CARE, IN CEBU (CONCEPT)</span></div>
+  </footer>
+</body>
+</html>
