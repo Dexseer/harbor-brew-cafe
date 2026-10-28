@@ -92,6 +92,24 @@
     photo.append(inner);
   });
 
+  // script.js sets up its card reveal before the menu cards exist, so cards never
+  // got revealed. Do it here: stagger them in, which also opens the photo wipe.
+  const cards = $$(".menu-card");
+  cards.forEach((card, i) => {
+    card.classList.add("reveal-on-scroll");
+    card.style.setProperty("--reveal-delay", `${i * 130}ms`);
+  });
+  if ("IntersectionObserver" in window) {
+    const cardObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add("is-visible"); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -6% 0px" });
+    cards.forEach(card => cardObserver.observe(card));
+  } else {
+    cards.forEach(card => card.classList.add("is-visible"));
+  }
+
   if ("IntersectionObserver" in window) {
     const reveal = new IntersectionObserver((entries, obs) => {
       entries.forEach(e => {
