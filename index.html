@@ -16,10 +16,36 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="motion.css">
+  <script>
+    /* Intro state: only for visitors who have not asked for reduced motion.
+       The timeout is a safety net so the page can never stay hidden. */
+    (function () {
+      var d = document.documentElement;
+      if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      d.classList.add("has-intro");
+      setTimeout(function () {
+        d.classList.add("is-ready", "intro-open", "intro-done");
+        var l = document.getElementById("loader");
+        if (l) l.style.display = "none";
+      }, 9000);
+    })();
+  </script>
+  <noscript><style>.loader{display:none}</style></noscript>
   <script src="config.js" defer></script>
   <script src="script.js" defer></script>
+  <script src="motion.js" defer></script>
 </head>
 <body>
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <span class="loader-mark">hb.</span>
+      <span class="loader-name">HARBOR BREW CAFÉ</span>
+      <div class="loader-bar"><i></i></div>
+      <span class="loader-count">00</span>
+    </div>
+  </div>
+  <div class="scroll-progress" aria-hidden="true"></div>
   <div class="announcement">HARBOR BREW CAFÉ · A WEBSITE CONCEPT MADE WITH CARE</div>
   <header class="site-header">
     <a class="brand" href="#home" aria-label="Harbor Brew home">
@@ -41,7 +67,7 @@
     <section class="hero" id="home">
       <div class="hero-copy">
         <p class="eyebrow"><span class="eyebrow-line"></span> YOUR DAILY RITUAL, REIMAGINED</p>
-        <h1>A better kind<br>of <em>coffee break.</em></h1>
+        <h1 aria-label="A better kind of coffee break."><span class="line"><span>A better kind</span></span><span class="line"><span>of <em>coffee break.</em></span></span></h1>
         <p class="hero-description">Good coffee should feel like a small escape. Discover thoughtfully made drinks, fresh-from-the-oven favorites, and a warm place to pause, reset, and enjoy the moment.</p>
         <div class="hero-actions">
           <a class="button button-dark" href="#menu">Explore the menu <span aria-hidden="true">↗</span></a>
@@ -61,7 +87,10 @@
     </section>
 
     <section class="ticker" aria-label="Our values">
-      <div>GOOD COFFEE <span>✳</span> EASY DAYS <span>✳</span> LITTLE MOMENTS <span>✳</span> GOOD COFFEE <span>✳</span> EASY DAYS <span>✳</span> LITTLE MOMENTS <span>✳</span></div>
+      <div class="ticker-track">
+        <div class="ticker-group">GOOD COFFEE <span>✳</span> EASY DAYS <span>✳</span> LITTLE MOMENTS <span>✳</span> GOOD COFFEE <span>✳</span> EASY DAYS <span>✳</span> LITTLE MOMENTS <span>✳</span> GOOD COFFEE <span>✳</span> EASY DAYS <span>✳</span> LITTLE MOMENTS <span>✳</span></div>
+        <div class="ticker-group" aria-hidden="true">GOOD COFFEE <span>✳</span> EASY DAYS <span>✳</span> LITTLE MOMENTS <span>✳</span> GOOD COFFEE <span>✳</span> EASY DAYS <span>✳</span> LITTLE MOMENTS <span>✳</span> GOOD COFFEE <span>✳</span> EASY DAYS <span>✳</span> LITTLE MOMENTS <span>✳</span></div>
+      </div>
     </section>
 
     <section class="story section" id="story">

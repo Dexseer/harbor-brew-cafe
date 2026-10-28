@@ -105,7 +105,7 @@
   const reduceMotion = reduceMotionQuery?.matches ?? false;
   if (!reduceMotion && "IntersectionObserver" in window) {
     const revealTargets = document.querySelectorAll(
-      ".story .section-kicker, .story-layout, .story-image, .story-image-caption, .menu-section .section-kicker, .section-heading, .menu-card, .visit .section-kicker, .visit-layout, .contact-section .section-kicker, .contact-layout, .quote-band > *"
+      ".story .section-kicker, .story-layout, .story-image-caption, .menu-section .section-kicker, .section-heading, .menu-card, .visit .section-kicker, .visit-layout, .contact-section .section-kicker, .contact-layout, .quote-band > *"
     );
     revealTargets.forEach((element, index) => {
       element.classList.add("reveal-on-scroll");
