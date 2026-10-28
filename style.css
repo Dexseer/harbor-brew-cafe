@@ -150,3 +150,52 @@ h2 { font-size: clamp(40px, 4.5vw, 61px); line-height: 1.08; margin-bottom: 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+
+
+/* Client-ready contact section and interaction states */
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid #b9683e; outline-offset: 3px; }
+.button-outline { display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--ink); padding: 14px 20px; text-decoration: none; color: var(--ink); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+.contact-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 26px; }
+.contact-section { background: #efe9dd; }
+.contact-layout { display: grid; grid-template-columns: 1fr minmax(280px, .8fr); gap: clamp(32px, 7vw, 100px); margin-top: 35px; align-items: start; }
+.contact-intro { max-width: 480px; line-height: 1.8; color: #625d54; }
+.contact-form { display: grid; gap: 10px; }
+.contact-form label { margin-top: 8px; font-size: 12px; font-weight: 700; }
+.contact-form input, .contact-form textarea { width: 100%; border: 1px solid #d0c7b8; background: #faf8f3; border-radius: 0; padding: 13px 14px; font: inherit; color: var(--ink); }
+.contact-form textarea { resize: vertical; min-height: 130px; }
+.contact-form button { justify-self: start; margin-top: 8px; cursor: pointer; }
+.form-status { font-size: 12px; line-height: 1.6; color: #625d54; }
+#directions-link { display: inline-block; margin-top: 8px; }
+.menu-photo { background-size: cover; background-position: center; }
+@media (max-width: 760px) { .contact-layout { grid-template-columns: 1fr; gap: 28px; } .contact-form button { width: 100%; } .contact-actions .button { min-height: 46px; } }
+
+
+/* Smooth, restrained motion for a more polished scrolling experience */
+:where(a, button, .menu-card, .story-image, .visit-image, .hero-image, .button-outline) {
+  transition: color .25s ease, background-color .25s ease, border-color .25s ease,
+    box-shadow .3s ease, transform .35s cubic-bezier(.2,.7,.2,1), opacity .35s ease;
+}
+.menu-card { transform: translateY(0); }
+.menu-card:hover { transform: translateY(-6px); }
+.story-image, .visit-image, .hero-image { transition: transform .7s cubic-bezier(.2,.7,.2,1), filter .5s ease; }
+.story-image:hover, .visit-image:hover, .hero-image:hover { transform: scale(1.015); }
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+.nav a { transition: color .2s ease, opacity .2s ease; }
+.nav a:hover { opacity: .68; }
+.button, .button-outline, .nav-cta { transition: transform .22s ease, background-color .22s ease, color .22s ease; }
+.button:hover, .button-outline:hover, .nav-cta:hover { transform: translateY(-2px); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll { opacity: 1 !important; transform: none !important; transition: none !important; }
+  :where(a, button, .menu-card, .story-image, .visit-image, .hero-image, .button-outline) { transition: none !important; }
+  .menu-card:hover, .story-image:hover, .visit-image:hover, .hero-image:hover, .button:hover, .button-outline:hover, .nav-cta:hover { transform: none !important; }
+}

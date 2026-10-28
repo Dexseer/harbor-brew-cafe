@@ -1,23 +1,40 @@
-# Harbor Brew Café — Portfolio Concept
+# Harbor Brew Café — client-ready starter template
 
-A responsive fictional café website built with plain HTML, CSS, and JavaScript.
+A responsive static café website for GitHub Pages. It includes an accessible mobile nav, menu rendered from `config.js`, configurable hours/address/contact links, Google Maps directions, SEO/social metadata, and an inquiry form.
+
+## Important before using for a real café
+This is still a **demo template**, not a verified real café. All business facts, sample prices, menu items, and imagery must be approved by the business owner before launch. Do not publish fake hours/address/contact information as real.
 
 ## Preview locally
-1. Download and extract the project folder.
-2. Open `index.html` in a browser.
-3. For easier development, open the folder in VS Code and use a local preview extension if you have one.
+Open `index.html` in a browser. For best results, use VS Code's Live Server extension (optional).
 
-## Publish with GitHub Pages
-1. Create a GitHub repository named `harbor-brew-cafe`.
-2. Upload `index.html`, `style.css`, `script.js`, and `README.md` to the repository root.
-3. Open **Settings → Pages**.
-4. Under build and deployment, choose **Deploy from a branch**.
-5. Select `main` and `/ (root)`, then save.
-6. Wait for GitHub Pages to publish the site. The public URL will be shown in the Pages settings.
+## Customize the business
+Edit `config.js`:
+- `name`, `tagline`
+- `address` and `mapsQuery` (verified address or Google Maps place URL)
+- `phone`, `email`, `messengerUrl`
+- `hours` (set each day's time; use `Closed` for closed days)
+- `menu` (name, description, price, Unsplash photo ID, optional tag)
 
-## Important notes
-- This is a fictional concept project for a developer portfolio, not a real café.
-- Menu items and prices are sample content.
-- The location and contact email are placeholders; replace them for any real client.
-- Images are loaded from Unsplash and Google Fonts are loaded from Google Fonts, so an internet connection is needed for those assets.
-- Before using this as a client project, replace all fictional content with the client's approved information and confirm image licensing/usage terms.
+Leave unconfirmed values blank. The directions, phone, and Messenger links remain hidden until configured.
+
+## Contact form behavior
+- If `formSubmitEmail` is blank, the form opens a prefilled email draft using `email`. The visitor's device must have an email app configured; this is not a server-side form.
+- For a hosted form at no upfront cost, set `formSubmitEmail` to an inbox the owner controls. The site uses FormSubmit's AJAX endpoint. The owner must confirm the activation email on first use. FormSubmit is a third-party service; review its terms/privacy before use and test delivery before launch. Never put passwords or API secrets in this public repository.
+
+## Publish on GitHub Pages
+1. Extract this ZIP on your computer.
+2. Open the existing GitHub repository's **Code** tab.
+3. Click **Add file → Upload files**.
+4. Upload/drag the files *inside* this folder (`index.html`, `style.css`, `script.js`, `config.js`, `README.md`) into the repository root. Do not upload only the ZIP or nested folder.
+5. Commit the changes to `main`.
+6. Keep **Settings → Pages → Deploy from a branch → main → /(root)** selected.
+7. Wait for the Pages build in **Actions** to complete, then test the live URL on mobile and desktop.
+
+## Launch checklist
+- Owner approved name, menu, prices, hours, address, phone, email and social links
+- All links tested on a phone
+- Contact delivery tested end-to-end
+- Images licensed/approved and alt text checked
+- SEO title/description and social preview checked
+- Privacy notice added if collecting personal information
