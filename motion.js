@@ -3,7 +3,7 @@
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
   const cfg = window.CAFE_CONFIG || {};
-  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduce = window.__reduceMotion ?? (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const loader = $("#loader");
 
   // Visitors who prefer reduced motion get the plain site: no loader, no effects.
@@ -26,7 +26,7 @@
 
     let seen = false;
     try { seen = sessionStorage.getItem("hb-intro") === "1"; } catch (_) {}
-    const minTime = seen ? 500 : 1600; // repeat visits get a quicker intro
+    const minTime = seen ? 600 : 2200; // repeat visits get a quicker intro
 
     const pageReady = new Promise(resolve => {
       if (document.readyState === "complete") resolve();

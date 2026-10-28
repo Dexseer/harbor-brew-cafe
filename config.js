@@ -2,6 +2,9 @@
 window.CAFE_CONFIG = {
   name: "Harbor Brew Café",
   tagline: "Thoughtfully brewed coffee and fresh little bites.",
+  // Animations: "always" plays the intro and smooth scrolling even if the visitor's OS has
+  // "reduce motion" turned on. Use "auto" to respect that OS setting (more accessible).
+  motion: "always",
   // Replace demo values with owner-approved details. Leave blank until confirmed.
   address: "",
   mapsQuery: "", // Full verified address or Google Maps place URL

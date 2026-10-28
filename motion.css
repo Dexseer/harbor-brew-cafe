@@ -87,9 +87,7 @@ html.has-intro:not(.intro-open) { overflow: hidden; }
 .has-intro .image-sticker { opacity: 0; transform: rotate(-80deg) scale(.2); }
 .has-intro.is-ready .image-sticker { opacity: 1; transform: rotate(-9deg) scale(1); }
 .has-intro.is-ready:not(.intro-done) .image-sticker { transition: transform 1s cubic-bezier(.34, 1.56, .64, 1) 1.35s, opacity .3s ease 1.35s; }
-@media (prefers-reduced-motion: no-preference) {
-  .image-sticker { animation: stickerFloat 7s ease-in-out infinite; }
-}
+.motion-on .image-sticker { animation: stickerFloat 7s ease-in-out infinite; }
 @keyframes stickerFloat { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
 
 /* header + announcement fade in last */
@@ -184,10 +182,8 @@ html.has-intro:not(.intro-open) { overflow: hidden; }
 .text-link:hover::after { transform: scaleX(1); }
 
 /* ---------- Reduced motion ---------- */
-@media (prefers-reduced-motion: reduce) {
-  .loader { display: none; }
-  .ticker .ticker-track, .image-sticker { animation: none; }
-  .button::before, .button-outline::before, .text-link::after, .nav a::after { transition: none; }
-  .menu-photo-inner { transition: none; }
-  .site-header { transition: none; }
-}
+html.reduce-motion .loader { display: none; }
+html.reduce-motion .ticker .ticker-track, html.reduce-motion .image-sticker { animation: none; }
+html.reduce-motion .button::before, html.reduce-motion .button-outline::before { transition: none; }
+html.reduce-motion .text-link::after, html.reduce-motion .nav a::after { transition: none; }
+html.reduce-motion .menu-photo-inner, html.reduce-motion .site-header { transition: none; }

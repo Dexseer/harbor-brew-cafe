@@ -147,9 +147,7 @@ h2 { font-size: clamp(40px, 4.5vw, 61px); line-height: 1.08; margin-bottom: 0; }
   .back-top { align-self: center; }
   .footer-bottom { gap: 12px; flex-direction: column; }
 }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
-}
+html.reduce-motion *, html.reduce-motion *::before, html.reduce-motion *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 
 
 /* Client-ready contact section and interaction states */
@@ -193,11 +191,9 @@ button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
 .nav a:hover { opacity: .68; }
 .button, .button-outline, .nav-cta { transition: transform .22s ease, background-color .22s ease, color .22s ease; }
 .button:hover, .button-outline:hover, .nav-cta:hover { transform: translateY(-2px); }
-@media (prefers-reduced-motion: reduce) {
-  .reveal-on-scroll { opacity: 1 !important; transform: none !important; transition: none !important; }
-  :where(a, button, .menu-card, .story-image, .visit-image, .hero-image, .button-outline) { transition: none !important; }
-  .menu-card:hover, .story-image:hover, .visit-image:hover, .hero-image:hover, .button:hover, .button-outline:hover, .nav-cta:hover { transform: none !important; }
-}
+html.reduce-motion :is(.reveal-on-scroll) { opacity: 1 !important; transform: none !important; transition: none !important; }
+html.reduce-motion :is(:where(a, button, .menu-card, .story-image, .visit-image, .hero-image, .button-outline)) { transition: none !important; }
+html.reduce-motion :is(.menu-card:hover, .story-image:hover, .visit-image:hover, .hero-image:hover, .button:hover, .button-outline:hover, .nav-cta:hover) { transform: none !important; }
 
 
 /* The JavaScript scroll helper calculates the sticky-header offset itself. */
@@ -275,9 +271,7 @@ h1 { max-width: 620px; font-size: clamp(55px, 6.1vw, 86px); line-height: 1.02; l
   .visit-image { min-height: 280px; border-bottom-left-radius: 46px; }
   .contact-form { padding: 20px; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .contact-form input, .contact-form textarea { transition: none; }
-}
+html.reduce-motion :is(.contact-form input, .contact-form textarea) { transition: none; }
 
 /* Professional design pass: stronger editorial hierarchy, consistent rhythm, and accessible polish. */
 :root {
@@ -393,7 +387,5 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .contact-form { padding: 22px 18px; }
   .footer { padding: 38px 6% 20px; gap: 20px; }
 }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; }
-  .menu-card, .button, .story-image, .visit-image, .hero-image { transition: none !important; }
-}
+html.reduce-motion *, html.reduce-motion *::before, html.reduce-motion *::after { scroll-behavior: auto !important; }
+html.reduce-motion :is(.menu-card, .button, .story-image, .visit-image, .hero-image) { transition: none !important; }

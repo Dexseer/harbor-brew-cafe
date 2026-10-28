@@ -9,8 +9,10 @@
   // One controlled scroll animation avoids competing browser and JavaScript scrolling.
   let scrollFrame = 0;
   let scrollToken = 0;
+  const isReduced = () => window.__reduceMotion ?? (reduceMotionQuery?.matches ?? false);
+  // Quartic ease: slow start, long glide, soft landing.
   const easeInOutCubic = (t) =>
-    t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
 
   function scrollToTarget(target) {
     if (!target) return;
@@ -22,12 +24,12 @@
     const targetY = Math.max(0, startY + target.getBoundingClientRect().top - headerHeight - 12);
     const distance = targetY - startY;
 
-    if (reduceMotionQuery?.matches || Math.abs(distance) < 2) {
+    if (isReduced() || Math.abs(distance) < 2) {
       window.scrollTo(0, targetY);
       return;
     }
 
-    const duration = Math.min(1050, Math.max(450, Math.abs(distance) * 0.45));
+    const duration = Math.min(2400, Math.max(1500, Math.abs(distance) * 1.0));
     let startTime = null;
     const step = (timestamp) => {
       if (token !== scrollToken) return;
@@ -102,7 +104,7 @@
 
   // Scroll reveal: sections and cards ease into view as the visitor scrolls.
   // Elements remain visible if IntersectionObserver is unavailable.
-  const reduceMotion = reduceMotionQuery?.matches ?? false;
+  const reduceMotion = isReduced();
   if (!reduceMotion && "IntersectionObserver" in window) {
     const revealTargets = document.querySelectorAll(
       ".story .section-kicker, .story-layout, .story-image-caption, .menu-section .section-kicker, .section-heading, .menu-card, .visit .section-kicker, .visit-layout, .contact-section .section-kicker, .contact-layout, .quote-band > *"
